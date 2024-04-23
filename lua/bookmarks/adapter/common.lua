@@ -23,7 +23,7 @@ local function format(bookmark, bookmarks)
 	end
 
 	return string.format(
-		"%-" .. max_len_listname .. "s %-" .. max_len_name .. "s %-" .. max_len_path .. "s [%-4d, %-4d]: %s",
+		"%-" .. max_len_listname .. "s %-" .. max_len_name .. "s %-" .. max_len_path .. "s %-4d:%-4d| %s",
 		bookmark.listname or "",
 		bookmark.name,
 		utils.shorten_file_path(bookmark.location.path),
