@@ -26,6 +26,14 @@ local function shorten_file_path(file_path)
 		return string.sub(part, 1, 1)
 	end, parts)
 
+	if #shorten > 5 then
+		return table.concat({ unpack(shorten, 1, 2) }, "/")
+			.. "/…/"
+			.. table.concat({ unpack(shorten, #shorten - 1, #shorten) }, "/")
+			.. "/"
+			.. filename
+	end
+
 	return table.concat(shorten, "/") .. "/" .. filename
 end
 
